@@ -3,79 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แบบประเมินคัดกรองสุขภาพและพฤติกรรม 3อ. 2ส.</title>
+    <title>แบบประเมินความรอบรู้และพฤติกรรมสุขภาพ - โรงพยาบาลศรีสะเกษ</title>
     <style>
-        body { font-family: 'Sarabun', Tahoma, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
-        .container { max-width: 600px; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: auto; }
-        h2 { text-align: center; color: #2c3e50; }
+        body { font-family: 'Sarabun', Tahoma, sans-serif; background-color: #eef2f3; margin: 0; padding: 15px; }
+        .container { max-width: 800px; background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: auto; }
+        .header { text-align: center; border-bottom: 2px solid #00796b; padding-bottom: 15px; margin-bottom: 20px; }
+        .header img { width: 90px; margin-bottom: 10px; }
+        h2 { color: #004d40; margin: 5px 0; font-size: 20px; }
+        h3 { color: #00796b; border-left: 4px solid #00796b; padding-left: 10px; margin-top: 25px; font-size: 16px; }
+        .section-desc { font-size: 13px; color: #555; margin-bottom: 15px; }
         .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; color: #34495e; }
-        input, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background-color: #27ae60; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; }
-        button:hover { background-color: #219150; }
+        label { display: block; margin-bottom: 6px; font-weight: bold; color: #333; font-size: 14px; }
+        input[type="text"], input[type="number"], select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        .inline-group { display: flex; gap: 10px; }
+        .inline-group div { flex: 1; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; margin-bottom: 20px; font-size: 13px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #e0f2f1; color: #004d40; }
+        td:nth-child(2) { text-align: left; }
+        button { width: 100%; padding: 14px; background-color: #00796b; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        button:hover { background-color: #004d40; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>แบบประเมินสุขภาพและพฤติกรรม 3อ. 2ส.</h2>
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Ministry_of_Public_Health_Thailand_Executive_Logo.svg/600px-Ministry_of_Public_Health_Thailand_Executive_Logo.svg.png" alt="โลโก้กระทรวงสาธารณสุข">
+        <h2>แบบประเมินความรอบรู้และพฤติกรรมสุขภาพ</h2>
+        <p style="margin:2px; font-weight:bold; color:#00796b;">กลุ่มงานสุขศึกษา โรงพยาบาลศรีสะเกษ</p>
+    </div>
+
     <form id="healthForm">
+        <h3>ส่วนที่ 1 ข้อมูลทั่วไปของผู้ตอบแบบสอบถาม</h3>
+        
         <div class="form-group">
-            <label for="fullName">ชื่อ - นามสกุล:</label>
-            <input type="text" id="fullName" required>
-        </div>
-        <div class="form-group">
-            <label for="age">อายุ (ปี):</label>
-            <input type="number" id="age" required>
-        </div>
-        <div class="form-group">
-            <label for="gender">เพศ:</label>
+            <label>1. เพศ</label>
             <select id="gender" required>
                 <option value="">-- เลือกเพศ --</option>
                 <option value="ชาย">ชาย</option>
                 <option value="หญิง">หญิง</option>
+                <option value="LGBTQ+ / เพศทางเลือก">LGBTQ+ / เพศทางเลือก</option>
             </select>
         </div>
+
         <div class="form-group">
-            <label for="nutrition">อาหาร (3อ.): พฤติกรรมการรับประทานอาหารหวาน มัน เค็ม</label>
-            <select id="nutrition" required>
-                <option value="ดีมาก">รับประทานรสจืด/ผักผลไม้สม่ำเสมอ</option>
-                <option value="ปานกลาง">รับประทานอาหารทั่วไป</option>
-                <option value="ควรปรับปรุง">ติดหวาน/เค็ม/อาหารแปรรูปประจำ</option>
+            <label>2. ปัจจุบันท่านอายุ</label>
+            <select id="ageGroup" required>
+                <option value="">-- เลือกช่วงอายุ --</option>
+                <option value="15–19 ปี">อายุ 15–19 ปี</option>
+                <option value="20–29 ปี">อายุ 20–29 ปี</option>
+                <option value="30–39 ปี">อายุ 30–39 ปี</option>
+                <option value="40–49 ปี">อายุ 40–49 ปี</option>
+                <option value="50–59 ปี">อายุ 50–59 ปี</option>
+                <option value="60 ปีขึ้นไป">อายุ 60 ปีขึ้นไป</option>
             </select>
         </div>
+
         <div class="form-group">
-            <label for="exercise">ออกกำลังกาย (3อ.): กิจกรรมทางกายสัปดาห์ละอย่างน้อย 150 นาที</label>
-            <select id="exercise" required>
-                <option value="สม่ำเสมอ">ปฏิบัติสม่ำเสมอ</option>
-                <option value="นานๆ ครั้ง">ปฏิบัตินานๆ ครั้ง</option>
-                <option value="ไม่ได้ออกกำลังกาย">ไม่ได้ออกกำลังกาย</option>
-            </select>
+            <label>3. ข้อมูลทางกายภาพ</label>
+            <div class="inline-group">
+                <div>
+                    <input type="number" id="weight" step="0.1" placeholder="น้ำหนัก (กก.)" required>
+                </div>
+                <div>
+                    <input type="number" id="height" step="0.1" placeholder="ส่วนสูง (ซม.)" required>
+                </div>
+                <div>
+                    <input type="number" id="waist" step="0.1" placeholder="รอบเอว (ซม.)" required>
+                </div>
+            </div>
         </div>
+
         <div class="form-group">
-            <label for="emotion">อารมณ์ (3อ.): การจัดการความเครียดและการนอนหลับ</label>
-            <select id="emotion" required>
-                <option value="ดี">นอนหลับพักผ่อนเพียงพอ/ผ่อนคลายได้ดี</option>
-                <option value="ปานกลาง">มีความเครียดบางครั้ง</option>
-                <option value="เครียดมาก">เครียดสะสม/นอนไม่หลับ</option>
+            <label>4. ระดับการศึกษาสูงสุด</label>
+            <select id="education" required>
+                <option value="">-- เลือกระดับการศึกษา --</option>
+                <option value="ไม่ได้เรียนหนังสือ">ไม่ได้เรียนหนังสือ</option>
+                <option value="ประถมศึกษา">ประถมศึกษา</option>
+                <option value="มัธยมศึกษาตอนต้น">มัธยมศึกษาตอนต้น</option>
+                <option value="มัธยมศึกษาตอนปลาย/ปวช.">มัธยมศึกษาตอนปลาย/ปวช.</option>
+                <option value="อนุปริญญา/ปวส.">อนุปริญญา/ปวส.</option>
+                <option value="ปริญญาตรีหรือสูงกว่า">ปริญญาตรีหรือสูงกว่าปริญญาตรี</option>
             </select>
         </div>
+
         <div class="form-group">
-            <label for="smoking_alcohol">สุรา/บุหรี่ (2ส.): การดื่มสุราและการสูบบุหรี่</label>
-            <select id="smoking_alcohol" required>
-                <option value="ไม่สูบ/ไม่ดื่ม">ไม่สูบบุหรี่ และ ไม่ดื่มสุรา</option>
-                <option value="ดื่ม/สูบบางครั้ง">ดื่มสุราหรือสูบบุหรี่เป็นครั้งคราว</option>
-                <option value="สูบ/ดื่มประจำ">สูบบุหรี่หรือดื่มสุราเป็นประจำ</option>
+            <label>5. ปัจจุบันท่านประกอบอาชีพอะไร</label>
+            <select id="occupation" required>
+                <option value="">-- เลือกอาชีพ --</option>
+                <option value="รับราชการ/รัฐวิสาหกิจ">รับราชการ/รัฐวิสาหกิจ</option>
+                <option value="พนักงานบริษัทเอกชน">พนักงานบริษัทเอกชน</option>
+                <option value="รับจ้างทั่วไป">รับจ้างทั่วไป</option>
+                <option value="ค้าขาย">ค้าขาย</option>
+                <option value="เกษตรกร">เกษตรกร</option>
+                <option value="ไม่ได้ประกอบอาชีพ">ไม่ได้ประกอบอาชีพ</option>
+                <option value="อื่น ๆ">อื่น ๆ</option>
             </select>
         </div>
+
         <div class="form-group">
-            <label for="literacy">ความรอบรู้ทางสุขภาพ (Health Literacy):</label>
-            <select id="literacy" required>
-                <option value="สูง">เข้าใจและนำข้อมูลสุขภาพไปปรับใช้ได้ถูกต้อง</option>
-                <option value="ปานกลาง">เข้าใจข้อมูลสุขภาพแต่ยังปรับใช้ได้ไม่ครบถ้วน</option>
-                <option value="น้อย">ต้องการการแนะนำจากเจ้าหน้าที่เพิ่มเติม</option>
+            <label>6. ท่านมีบทบาท/ตำแหน่ง/สถานะทางสังคมใด</label>
+            <select id="socialRole" required>
+                <option value="">-- เลือกสถานะทางสังคม --</option>
+                <option value="อสม.">อาสาสมัครสาธารณสุขประจำหมู่บ้าน (อสม.)</option>
+                <option value="กำนัน/ผู้ใหญ่บ้าน/กรรมการชุมชน">กำนัน/ผู้ใหญ่บ้าน/กรรมการชุมชน</option>
+                <option value="ประชาชนในชุมชน">ประชาชนในชุมชน</option>
+                <option value="อื่น ๆ">อื่น ๆ</option>
             </select>
         </div>
+
+        <h3>ตอนที่ 3 ความรอบรู้ด้านสุขภาพ (Health Literacy)</h3>
+        <p class="section-desc">โปรดเลือกระดับความสามารถของท่านมากที่สุดในแต่ละข้อคำถาม</p>
+        
+        <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">ข้อคำถาม</th>
+                        <th>ง่ายมาก</th>
+                        <th>ง่าย</th>
+                        <th>ค่อนข้างง่าย</th>
+                        <th>ยาก</th>
+                        <th>ยากมาก</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. ค้นหาข้อมูลที่เชื่อถือได้ในการดูแลสุขภาพจากแหล่งต่าง ๆ (แอปฯ, เว็บไซต์, อสม.)</td>
+                        <td><input type="radio" name="hl1" value="ง่ายมาก" required></td>
+                        <td><input type="radio" name="hl1" value="ง่าย"></td>
+                        <td><input type="radio" name="hl1" value="ค่อนข้างง่าย"></td>
+                        <td><input type="radio" name="hl1" value="ยาก"></td>
+                        <td><input type="radio" name="hl1" value="ยากมาก"></td>
+                    </tr>
+                    <tr>
+                        <td>2. เข้าใจข้อมูลสุขภาพหรือฉลากโภชนาการ (น้ำตาล, ไขมัน, โซเดียม)</td>
+                        <td><input type="radio" name="hl2" value="ง่ายมาก" required></td>
+                        <td><input type="radio" name="hl2" value="ง่าย"></td>
+                        <td><input type="radio" name="hl2" value="ค่อนข้างง่าย"></td>
+                        <td><input type="radio" name="hl2" value="ยาก"></td>
+                        <td><input type="radio" name="hl2" value="ยากมาก"></td>
+                    </tr>
+                    <tr>
+                        <td>3. แยกแยะได้ว่าข้อมูลสุขภาพเรื่องใดน่าเชื่อถือ เรื่องใดโฆษณาเกินจริง</td>
+                        <td><input type="radio" name="hl3" value="ง่ายมาก" required></td>
+                        <td><input type="radio" name="hl3" value="ง่าย"></td>
+                        <td><input type="radio" name="hl3" value="ค่อนข้างง่าย"></td>
+                        <td><input type="radio" name="hl3" value="ยาก"></td>
+                        <td><input type="radio" name="hl3" value="ยากมาก"></td>
+                    </tr>
+                    <tr>
+                        <td>4. นำคำแนะนำการปรับพฤติกรรมสุขภาพมาปฏิบัติจริงอย่างต่อเนื่อง</td>
+                        <td><input type="radio" name="hl4" value="ง่ายมาก" required></td>
+                        <td><input type="radio" name="hl4" value="ง่าย"></td>
+                        <td><input type="radio" name="hl4" value="ค่อนข้างง่าย"></td>
+                        <td><input type="radio" name="hl4" value="ยาก"></td>
+                        <td><input type="radio" name="hl4" value="ยากมาก"></td>
+                    </tr>
+                    <tr>
+                        <td>5. อธิบายวิธีการดูแลสุขภาพเพื่อป้องกันโรคเบาหวานและความดันโลหิตสูงได้</td>
+                        <td><input type="radio" name="hl5" value="ง่ายมาก" required></td>
+                        <td><input type="radio" name="hl5" value="ง่าย"></td>
+                        <td><input type="radio" name="hl5" value="ค่อนข้างง่าย"></td>
+                        <td><input type="radio" name="hl5" value="ยาก"></td>
+                        <td><input type="radio" name="hl5" value="ยากมาก"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>ตอนที่ 5 พฤติกรรมสุขภาพตามหลัก 3อ. 2ส.</h3>
+        <p class="section-desc">โปรดเลือกความถี่ในการปฏิบัติของท่านในช่วงที่ผ่านมา</p>
+
+        <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">ข้อปฏิบัติ</th>
+                        <th>6–7 วัน/สัปดาห์</th>
+                        <th>4–5 วัน/สัปดาห์</th>
+                        <th>3 วัน/สัปดาห์</th>
+                        <th>1–2 วัน/สัปดาห์</th>
+                        <th>ไม่ได้ปฏิบัติ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. ควบคุมปริมาณอาหาร ไม่หวาน มัน หรือเค็มจัดในแต่ละมื้อ</td>
+                        <td><input type="radio" name="b1" value="6–7 วัน/สัปดาห์" required></td>
+                        <td><input type="radio" name="b1" value="4–5 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b1" value="3 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b1" value="1–2 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b1" value="ไม่ได้ปฏิบัติ"></td>
+                    </tr>
+                    <tr>
+                        <td>2. รับประทานผักและผลไม้สด สะอาด รวมกันอย่างน้อยวันละ ½ กิโลกรัม</td>
+                        <td><input type="radio" name="b2" value="6–7 วัน/สัปดาห์" required></td>
+                        <td><input type="radio" name="b2" value="4–5 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b2" value="3 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b2" value="1–2 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b2" value="ไม่ได้ปฏิบัติ"></td>
+                    </tr>
+                    <tr>
+                        <td>3. ออกกำลังกายหรือมีกิจกรรมทางกายต่อเนื่องจนรู้สึกเหนื่อยหรือเหงื่อออก</td>
+                        <td><input type="radio" name="b3" value="6–7 วัน/สัปดาห์" required></td>
+                        <td><input type="radio" name="b3" value="4–5 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b3" value="3 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b3" value="1–2 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b3" value="ไม่ได้ปฏิบัติ"></td>
+                    </tr>
+                    <tr>
+                        <td>4. จัดการความเครียดของตนเองด้วยการคิดหรือมองโลกในแง่ดี</td>
+                        <td><input type="radio" name="b4" value="6–7 วัน/สัปดาห์" required></td>
+                        <td><input type="radio" name="b4" value="4–5 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b4" value="3 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b4" value="1–2 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b4" value="ไม่ได้ปฏิบัติ"></td>
+                    </tr>
+                    <tr>
+                        <td>5. สูบบุหรี่หรือสูดควันบุหรี่</td>
+                        <td><input type="radio" name="b5" value="6–7 วัน/สัปดาห์" required></td>
+                        <td><input type="radio" name="b5" value="4–5 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b5" value="3 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b5" value="1–2 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b5" value="ไม่ได้ปฏิบัติ"></td>
+                    </tr>
+                    <tr>
+                        <td>6. ดื่มสุราหรือเครื่องดื่มที่มีแอลกอฮอล์</td>
+                        <td><input type="radio" name="b6" value="6–7 วัน/สัปดาห์" required></td>
+                        <td><input type="radio" name="b6" value="4–5 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b6" value="3 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b6" value="1–2 วัน/สัปดาห์"></td>
+                        <td><input type="radio" name="b6" value="ไม่ได้ปฏิบัติ"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <button type="submit" id="submitBtn">ส่งแบบประเมิน</button>
     </form>
 </div>
@@ -89,15 +254,31 @@
         submitBtn.disabled = true;
         submitBtn.innerText = "กำลังบันทึกข้อมูล...";
 
+        const getRadioValue = (name) => {
+            const el = document.querySelector(`input[name="${name}"]:checked`);
+            return el ? el.value : '';
+        };
+
         const payload = {
-            fullName: document.getElementById('fullName').value,
-            age: document.getElementById('age').value,
             gender: document.getElementById('gender').value,
-            nutrition: document.getElementById('nutrition').value,
-            exercise: document.getElementById('exercise').value,
-            emotion: document.getElementById('emotion').value,
-            smoking_alcohol: document.getElementById('smoking_alcohol').value,
-            literacy: document.getElementById('literacy').value
+            ageGroup: document.getElementById('ageGroup').value,
+            weight: document.getElementById('weight').value,
+            height: document.getElementById('height').value,
+            waist: document.getElementById('waist').value,
+            education: document.getElementById('education').value,
+            occupation: document.getElementById('occupation').value,
+            socialRole: document.getElementById('socialRole').value,
+            hl1: getRadioValue('hl1'),
+            hl2: getRadioValue('hl2'),
+            hl3: getRadioValue('hl3'),
+            hl4: getRadioValue('hl4'),
+            hl5: getRadioValue('hl5'),
+            b1: getRadioValue('b1'),
+            b2: getRadioValue('b2'),
+            b3: getRadioValue('b3'),
+            b4: getRadioValue('b4'),
+            b5: getRadioValue('b5'),
+            b6: getRadioValue('b6')
         };
 
         fetch(WEB_APP_URL, {
